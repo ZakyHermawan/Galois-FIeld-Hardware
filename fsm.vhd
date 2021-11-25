@@ -413,7 +413,8 @@ begin
 					end if;
 					-- send_data <= data yg ingin dikirim
 					-- data akan terkirim bila button ditekan
-					if ctr_start = '1' or (send = '0' and temp_btn = '1') then -- kalo udah dikirim, pindah state
+					-- kalo udah dikirim, pindah state, tapi delay dulu
+					if ctr_start = '1' or (send = '0' and temp_btn = '1') then
 						-- kasih delay
 						if delay_ctr >= 100000 then
 							delay_ctr <= 0;
@@ -436,8 +437,8 @@ begin
 					else
 						send_data <= "00110000";
 					end if;
-					
-					if ctr_start = '1' or (send = '0' and temp_btn = '1') then -- kalo udah dikirim, pindah state
+					-- kalo udah dikirim, pindah state, tapi delay dulu
+					if ctr_start = '1' or (send = '0' and temp_btn = '1') then 
 						if delay_ctr >= 100000 then
 							delay_ctr <= 0;
 							ctr_start <= '0';
